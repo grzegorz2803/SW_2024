@@ -12,6 +12,8 @@ void CPU2::task5() {
 
 
 		room5->control_lights();
+		wait(10000, SC_SEC);
+
 
 	}
 }

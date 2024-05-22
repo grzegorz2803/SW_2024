@@ -7,7 +7,6 @@ HardwareTask::HardwareTask(sc_module_name name, Channel& channel) :sc_module(nam
 void HardwareTask::process(){
 	while (true)
 	{
-		wait(update_event);
 
 		int people_count = channel.receive(0);
 		if (people_count > 0) {
@@ -21,6 +20,6 @@ void HardwareTask::process(){
 		{
 			std::cout << "Room 0: ERROR (" << people_count << ")\n";
 		}
+		wait(10000, SC_SEC);
 	}
-	
 }

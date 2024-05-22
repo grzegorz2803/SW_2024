@@ -18,6 +18,7 @@ void CPU1::task2() {
 
 
 		room2->control_lights();
+		wait(10000, SC_SEC);
 	}
 }
 
@@ -27,6 +28,7 @@ void CPU1::task3() {
 	{
 
 		room3->control_lights();
+		wait(10000, SC_SEC);
 	}
 }
 void CPU1::task4() {
@@ -36,5 +38,6 @@ void CPU1::task4() {
 
 
 		room4->control_lights();
+		wait(10000, SC_SEC);
 	}
 }
