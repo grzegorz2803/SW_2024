@@ -30,7 +30,7 @@ int sc_main(int, char* []) {
 				{
 					break;
 				}
-				
+				update_event.notify();
 			}
 			
 		}
