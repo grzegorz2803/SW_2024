@@ -11,12 +11,13 @@ public:
 	CPU1(sc_module_name name, Channel& channel);
 
 private:
+	void task1();
 	void task2();
 	void task3();
 	void task4();
 
 	Channel& channel;
-	HardwareTask* hw_task1;
+	Room* room1;
 	Room* room2;
 	Room* room3;
 	Room* room4;

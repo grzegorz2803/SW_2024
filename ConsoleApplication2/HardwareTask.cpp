@@ -1,5 +1,7 @@
 #include "HardwareTask.h"
 #include <iostream>
+#include <Windows.h>
+
 extern sc_event update_event;
 HardwareTask::HardwareTask(sc_module_name name, Channel& channel) :sc_module(name), channel(channel){
 	SC_THREAD(process);
@@ -20,6 +22,6 @@ void HardwareTask::process(){
 		{
 			std::cout << "Room 0: ERROR (" << people_count << ")\n";
 		}
-		wait(10000, SC_SEC);
+		Sleep(500);
 	}
 }

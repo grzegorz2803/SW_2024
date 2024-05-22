@@ -211,6 +211,7 @@ int sc_main(int, char* []) {
 				default:
 					break;
 				}
+				system("cls");
 			}
 			
 		}
