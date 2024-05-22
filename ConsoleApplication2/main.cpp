@@ -20,6 +20,7 @@ int sc_main(int, char* []) {
 		{
 			if (_kbhit()) {
 				key = _getch();
+				
 				if (key == 'k') {
 					direction = !direction;
 					std::cout << direction << "\n";
