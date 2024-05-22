@@ -147,11 +147,17 @@
   <ItemGroup>
     <ClCompile Include="Channel.cpp" />
     <ClCompile Include="CPU1.cpp" />
+    <ClCompile Include="CPU2.cpp" />
+    <ClCompile Include="HardwareTask.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Room.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Channel.h" />
     <ClInclude Include="CPU1.h" />
+    <ClInclude Include="CPU2.h" />
+    <ClInclude Include="HardwareTask.h" />
+    <ClInclude Include="Room.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
