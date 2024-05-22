@@ -4,6 +4,7 @@
 #include <systemc.h>
 #include "Channel.h"
 #include "HardwareTask.h"
+#include "Room.h"
 SC_MODULE(CPU1) {
 public:
 	SC_HAS_PROCESS(CPU1);
@@ -16,6 +17,9 @@ private:
 
 	Channel& channel;
 	HardwareTask* hw_task1;
+	Room* room2;
+	Room* room3;
+	Room* room4;
 };
 
 #endif
