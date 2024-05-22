@@ -18,6 +18,6 @@ void HardwareTask::process(){
 		{
 			std::cout << "Room 0: ERROR (" << people_count << ")\n";
 		}
-		wait(1, SC_SEC);
+
 	
 }

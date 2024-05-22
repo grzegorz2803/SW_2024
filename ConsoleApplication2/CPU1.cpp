@@ -13,23 +13,28 @@ CPU1::CPU1(sc_module_name name, Channel& channel) :sc_module(name), channel(chan
 
 void CPU1::task2() {
 	
-	
+	while (true)
+	{
+
+
 		room2->control_lights();
-		wait(1, SC_SEC);
-	
+	}
 }
 
 void CPU1::task3() {
 	
-	
+	while (true)
+	{
+
 		room3->control_lights();
-		wait(1, SC_SEC);
-	
+	}
 }
 void CPU1::task4() {
 
-	
+	while (true)
+	{
+
+
 		room4->control_lights();
-		wait(1, SC_SEC);
-	
+	}
 }

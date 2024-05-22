@@ -7,8 +7,11 @@ CPU2::CPU2(sc_module_name name, Channel& channel) : sc_module(name), channel(cha
 }
 
 void CPU2::task5() {
+	while (true)
+	{
+
 
 		room5->control_lights();
-		wait(1, SC_SEC);
-	
+
+	}
 }

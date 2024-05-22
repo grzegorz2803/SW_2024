@@ -7,8 +7,7 @@ Room::Room(sc_module_name name,int room_id, Channel& channel) :sc_module(name),r
 void Room::control_lights() {
 
 
-
-		//wait_for_update();
+wait_for_update();
 		people_count = channel.receive(room_id);
 		if (people_count > 0) {
 			std::cout << "Room " << room_id << ": Lights ON (" << people_count << ")\n";
