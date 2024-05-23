@@ -1,11 +1,12 @@
 #include "HardwareTask.h"
 #include <iostream>
 #include <Windows.h>
-
+// konstruktor klasy HardwareTask inicjalizuj¹cy process
 extern sc_event update_event;
 HardwareTask::HardwareTask(sc_module_name name, Channel& channel) :sc_module(name), channel(channel){
 	SC_THREAD(process);
 }
+// funkcja realizuj¹ca zadanie sprzêtowe
 void HardwareTask::process(){
 	while (true)
 	{

@@ -3,7 +3,7 @@
 #include <thread>
 #include <chrono>
 #include <Windows.h>
-
+// konstruktor klasy CPU1 inicjalizuj¹cy pokoje i zadania sprzêtowe 
 CPU1::CPU1(sc_module_name name, Channel& channel) :sc_module(name), channel(channel) {
 
 	hw_t = new HardwareTask("HW", channel);
@@ -14,6 +14,7 @@ CPU1::CPU1(sc_module_name name, Channel& channel) :sc_module(name), channel(chan
 	SC_THREAD(task3);
 	SC_THREAD(task4);
 }
+// funkcje kontroluj¹ce œwiat³a w pokojach 
 void CPU1::task2() {
 	
 	while (true)

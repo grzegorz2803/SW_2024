@@ -7,31 +7,32 @@
 #include <functional>
 #include <cstdlib>
 #include <conio.h>
-sc_event update_event;
-bool direction = false;
-char key;
+bool direction = false; // zmienna dla kierunku 
+char key; // zmienna dla klawisza z klawiatury 
+// g³ówna funkcja programu
 int sc_main(int, char* []) {
-	Channel channel("channel");
-	CPU1 cpu1("CPU1", channel);
-	CPU2 cpu2("CPU2", channel);
-	direction ? std::cout << "Kierunek: gora, lewo \n" : std::cout << "Kierunek: dol, prawo \n";
-	std::thread keyboard_input([&channel]() {
+	Channel channel("channel"); // utworzenie kana³u komunikacyjnego 
+	CPU1 cpu1("CPU1", channel); // utworzenie CPU1
+	CPU2 cpu2("CPU2", channel); // utworzenie CPU2
+	direction ? std::cout << "Kierunek: gora, lewo \n" : std::cout << "Kierunek: dol, prawo \n"; // wyœwietlamy kierunek 
+	std::thread keyboard_input([&channel]() { // w¹tek obs³uguj¹cy wejœcie z klawiatury 
 		
 		while (true)
 		{
-			if (_kbhit()) {
-				key = _getch();
+			if (_kbhit()) { // oczekiwanie na klawisz 
+				key = _getch(); // pobieranie klawisza
 				
-				if (key == 'k') {
+				if (key == 'k') { // zmiana kierunku jesli "k"
 					direction = !direction;
 					direction ? std::cout << "Kierunek: gora, lewo \n" : std::cout << "Kierunek: dol, prawo \n";
 										continue;
 				}
-				if (key=='q')
+				if (key=='q') // zamkniêcie symulacji jeœli "q"
 				{
 					sc_stop();
 					break;
 				}
+				// wymiana informacji z kana³em komunikacyjnym w zale¿noœci od wejœcia i kierunku 
 				switch (key)
 				{
 				case '0':
@@ -39,7 +40,7 @@ int sc_main(int, char* []) {
 					int current_people = channel.receive(4);
 					if (direction)
 					{
-						(current_people--)<0?current_people=-1:current_people;
+						(current_people--)<0?current_people=-1:current_people; // zabezpieczenie przed ujemn¹ liczb¹ osób w pokoju 
 					}
 					else
 					{
@@ -85,7 +86,7 @@ int sc_main(int, char* []) {
 					{
 						
 						current_people2--;
-						if (current_people2 < 0) {
+						if (current_people2 < 0) { // zabezpieczenie przed przejsciem z pustego pokuju do innego 
 							current_people2 = -1;
 
 						}
@@ -281,12 +282,12 @@ int sc_main(int, char* []) {
 				default:
 					break;
 				}
-				system("cls");
+				system("cls"); // czyszczenie ekranu
 			}
 			
 		}
 		});
-	sc_start();
+	sc_start(); // pocz¹tek symulacji 
 	keyboard_input.join();
 	return 0;
 }
