@@ -14,6 +14,7 @@ int sc_main(int, char* []) {
 	Channel channel("channel");
 	CPU1 cpu1("CPU1", channel);
 	CPU2 cpu2("CPU2", channel);
+	direction ? std::cout << "Kierunek: gora, lewo \n" : std::cout << "Kierunek: dol, prawo \n";
 	std::thread keyboard_input([&channel]() {
 		
 		while (true)
@@ -23,8 +24,8 @@ int sc_main(int, char* []) {
 				
 				if (key == 'k') {
 					direction = !direction;
-					std::cout << direction << "\n";
-					continue;
+					direction ? std::cout << "Kierunek: gora, lewo \n" : std::cout << "Kierunek: dol, prawo \n";
+										continue;
 				}
 				if (key=='q')
 				{

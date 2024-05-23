@@ -8,24 +8,19 @@ Room::Room(sc_module_name name,int room_id, Channel& channel) :sc_module(name),r
 
 }
 void Room::control_lights() {
-
-		//wait_for_update();
 		people_count = channel.receive(room_id);
 		if (people_count > 0) {
-			std::cout << "Room " << room_id << ": \033[32m Lights ON \033[0m (" << people_count << ")\n";
+			std::cout << "S" << room_id+1 << ": \033[32m Lights ON \033[0m (" << people_count << ")\n";
 		}
 		else if (people_count == 0) {
-			std::cout << "Room " << room_id << ": Lights OFF (" << people_count << ")\n";
+			std::cout << "S" << room_id+1 << ": Lights OFF (" << people_count << ")\n";
 		}
 		else
 		{
-			std::cout << "Room " << room_id << ":\033[31m ERROR \033[0m(" << people_count << ")\n";
+			std::cout << "S" << room_id+1 << ":\033[31m ERROR \033[0m(" << people_count << ")\n";
 			channel.send(room_id, 0);
 		}
-		Sleep(1000);
+
 	
 }
 
-void Room::wait_for_update() {
-	wait(update_event);
-}

@@ -12,16 +12,16 @@ void HardwareTask::process(){
 
 		int people_count = channel.receive(0);
 		if (people_count > 0) {
-			std::cout << "Room 0: Lights ON (" << people_count << ")\n";
+			std::cout << "S1" << ": \033[32m Lights ON \033[0m (" << people_count << ")\n";
 		}
-		else if (people_count == 0)
-		{
-			std::cout << "Room 0: Lights OFF (" << people_count << ")\n";
+		else if (people_count == 0) {
+			std::cout << "S1" << ": Lights OFF (" << people_count << ")\n";
 		}
 		else
 		{
-			std::cout << "Room 0: ERROR (" << people_count << ")\n";
+			std::cout << "S1" << ":\033[31m ERROR \033[0m(" << people_count << ")\n";
+			channel.send(0, 0);
 		}
-		Sleep(500);
+		wait(1, SC_SEC);
 	}
 }

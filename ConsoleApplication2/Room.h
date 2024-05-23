@@ -11,7 +11,6 @@ private:
 	int people_count;
 	int room_id;
 	Channel& channel;
-	void wait_for_update();
 
 };
 #endif

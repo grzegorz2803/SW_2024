@@ -2,6 +2,7 @@
 #include "Room.h"
 #include <thread>
 #include <chrono>
+#include<Windows.h>
 
 CPU2::CPU2(sc_module_name name, Channel& channel) : sc_module(name), channel(channel) {
 	room5 = new Room("Room5", 4, channel);
@@ -15,7 +16,7 @@ void CPU2::task5() {
 
 		room5->control_lights();
 		wait(1, SC_SEC);
-		//std::this_thread::sleep_for(std::chrono::seconds(1));
+		Sleep(500);
 
 	}
 }
