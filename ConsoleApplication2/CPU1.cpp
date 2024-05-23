@@ -4,11 +4,12 @@
 #include <chrono>
 
 CPU1::CPU1(sc_module_name name, Channel& channel) :sc_module(name), channel(channel) {
-	room1 = new Room("Room1", 0, channel);
+	//room1 = new Room("Room1", 0, channel);
+	hw_t = new HardwareTask("HW", channel);
 	room2 = new Room("Room2", 1, channel);
 	room3 = new Room("Room3", 2, channel);
 	room4 = new Room("Room4", 3, channel);
-	SC_THREAD(task1);
+	//SC_THREAD(task1);
 	SC_THREAD(task2);
 	SC_THREAD(task3);
 	SC_THREAD(task4);

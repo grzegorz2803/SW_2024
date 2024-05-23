@@ -38,7 +38,7 @@ int sc_main(int, char* []) {
 					int current_people = channel.receive(4);
 					if (direction)
 					{
-						current_people--;
+						(current_people--)<0?current_people=-1:current_people;
 					}
 					else
 					{
@@ -52,7 +52,7 @@ int sc_main(int, char* []) {
 					int current_people = channel.receive(0);
 					if (direction)
 					{
-						current_people--;
+						(current_people--)<0?current_people=-1:current_people;
 					}
 					else
 					{
@@ -71,7 +71,7 @@ int sc_main(int, char* []) {
 					}
 					else
 					{
-						current_people--;
+						(current_people--)<0?current_people=-1:current_people;
 					}
 					channel.send(2, current_people);
 					break;
@@ -82,13 +82,28 @@ int sc_main(int, char* []) {
 					int current_people2 = channel.receive(2);
 					if (direction)
 					{
-						current_people1++;
+						
 						current_people2--;
+						if (current_people2 < 0) {
+							current_people2 = -1;
+
+						}
+						else
+						{
+							current_people1++;
+						}
 					}
 					else
 					{
-						current_people2++;
+						
 						current_people1--;
+						if (current_people1 < 0) {
+							current_people1 = -1;
+						}
+						else
+						{
+							current_people2++;
+						}
 					}
 					channel.send(0, current_people1);
 					channel.send(2, current_people2);
@@ -100,13 +115,27 @@ int sc_main(int, char* []) {
 					int current_people2 = channel.receive(4);
 					if (direction)
 					{
+
 						current_people1--;
-						current_people2++;
+						if (current_people1 < 0) {
+							current_people1 = -1;
+						}
+						else
+						{
+							current_people2++;
+						}
 					}
 					else
 					{
 						current_people2--;
-						current_people1++;
+						if (current_people2 < 0) {
+							current_people2 = -1;
+						}
+						else
+						{
+							current_people1++;
+						}
+					
 					}
 					channel.send(0, current_people1);
 					channel.send(4, current_people2);
@@ -119,12 +148,26 @@ int sc_main(int, char* []) {
 					if (direction)
 					{
 						current_people1--;
-						current_people2++;
+						if (current_people1 < 0) {
+							current_people1 = -1;
+						}
+						else
+						{
+							current_people2++;
+						}
+				
 					}
 					else
 					{
 						current_people2--;
-						current_people1++;
+						if (current_people2 < 0) {
+							current_people2 = -1;
+						}
+						else
+						{
+							current_people1++;
+						}
+				
 					}
 					channel.send(3, current_people1);
 					channel.send(4, current_people2);
@@ -139,7 +182,7 @@ int sc_main(int, char* []) {
 					}
 					else
 					{
-						current_people1--;
+						(current_people1--)<0?current_people1=-1:current_people1;
 					}
 					channel.send(3, current_people1);
 					break;
@@ -153,7 +196,7 @@ int sc_main(int, char* []) {
 					}
 					else
 					{
-						current_people1--;
+						(current_people1--)<0?current_people1=-1:current_people1;
 					}
 					channel.send(1, current_people1);
 					break;
@@ -167,7 +210,7 @@ int sc_main(int, char* []) {
 					}
 					else
 					{
-						current_people1--;
+						(current_people1--)<0?current_people1=-1:current_people1;
 					}
 					channel.send(1, current_people1);
 					break;
@@ -179,12 +222,25 @@ int sc_main(int, char* []) {
 					if (direction)
 					{
 						current_people1--;
-						current_people2++;
+						if (current_people1 < 0) {
+							current_people1 = -1;
+						}
+						else
+						{
+							current_people2++;
+						}
+					
 					}
 					else
 					{
 						current_people2--;
-						current_people1++;
+						if (current_people2 < 0) {
+							current_people2 = -1;
+						}
+						else
+						{
+							current_people1++;
+						}
 					}
 					channel.send(1, current_people1);
 					channel.send(3, current_people2);
@@ -196,13 +252,26 @@ int sc_main(int, char* []) {
 					int current_people2 = channel.receive(1);
 					if (direction)
 					{
-						current_people1++;
 						current_people2--;
+						if (current_people2 < 0) {
+							current_people2 = -1;
+						}
+						else
+						{
+							current_people1++;
+						}
 					}
 					else
 					{
-						current_people2++;
+					
 						current_people1--;
+						if (current_people1 < 0) {
+							current_people1 = -1;
+						}
+						else
+						{
+							current_people2++;
+						}
 					}
 					channel.send(0, current_people1);
 					channel.send(1, current_people2);

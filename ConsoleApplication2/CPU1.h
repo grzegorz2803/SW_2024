@@ -15,7 +15,7 @@ private:
 	void task2();
 	void task3();
 	void task4();
-
+	HardwareTask* hw_t;
 	Channel& channel;
 	Room* room1;
 	Room* room2;

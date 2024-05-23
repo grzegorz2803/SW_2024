@@ -20,8 +20,9 @@ void Room::control_lights() {
 		else
 		{
 			std::cout << "Room " << room_id << ":\033[31m ERROR \033[0m(" << people_count << ")\n";
+			channel.send(room_id, 0);
 		}
-		Sleep(500);
+		Sleep(1000);
 	
 }
 
